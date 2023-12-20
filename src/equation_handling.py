@@ -1,13 +1,19 @@
+from enum import Enum
+from typing import Dict
 
+class VarType(Enum):
+    CONTINUOUS = "continuous"
+    BINARY = "binary"
+    INTEGER = "integer"
 
 class Var:
-    decision_variables = {}
+    decision_variables: Dict[str, float] = {}
 
     def __init__(self,
                  name: str,
                  lower_bound: float=0.0,
                  upper_bound: float=None,
-                 vartype: str = "continuous") -> None:
+                 vartype: VarType = VarType.CONTINUOUS) -> None:
         
         
         
@@ -55,7 +61,7 @@ class Var:
 
 
 class Expression:
-    def __init__(self, variable_coeffs):
+    def __init__(self, variable_coeffs: Dict[Var, float]):
         
         self.variable_coeffs = variable_coeffs
 
@@ -137,8 +143,8 @@ class Model:
     
     
 if __name__ == "__main__":
-    x = Var(name="x", lower_bound=0.0, upper_bound=5.0, vartype="continuous")
-    y = Var(name="y", lower_bound=0.0, upper_bound=2.0, vartype="continuous")
+    x = Var(name="x", lower_bound=0.0, upper_bound=5.0, vartype=VarType.CONTINUOUS)
+    y = Var(name="y", lower_bound=0.0, upper_bound=2.0, vartype=VarType.CONTINUOUS)
     
     model = Model()
     model.setObjective(obj=2*x+4*y, sense="max")
