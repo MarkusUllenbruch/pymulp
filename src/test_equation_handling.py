@@ -71,3 +71,26 @@ def test_multiply_5x_minus_20x_plus50x1(x1):
     res = 10*(5*x1 - 20*x1) + 50*x1
     assert res.variable_coeffs == {x1: -100.0}
     
+    
+def test_divide_x1_by_2(x1):
+    res = x1 + x1 / 2
+    assert res.variable_coeffs == {x1: 1.5}
+    
+    
+def test_add_constant(x1):
+    res = -10 + x1 + 5
+    assert res.variable_coeffs == {x1: 1.0, "const": -5}
+    
+    
+def test_combine_expressions(x1, x2):
+    expr1 = 4*x1 + 10
+    expr2 = x1 + x2 - 3
+    res = expr1/2 + expr2
+    assert res.variable_coeffs == {x1: 3.0, x2: 1.0, "const": 2.0}
+    
+def test_combine_expressions2(x1, x2):
+    expr1 = 4*x1 + 10
+    expr2 = x1 + x2 - 3
+    res = expr1*0.5 + expr2
+    assert res.variable_coeffs == {x1: 3.0, x2: 1.0, "const": 2.0}
+    
