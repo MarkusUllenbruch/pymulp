@@ -1,14 +1,17 @@
 from equation_handling import Var, Expression
 import pytest
 
+# Delete class variable dict for every test
 @pytest.fixture(autouse=True)
 def reset_decision_variables():
     Var.decision_variables = {}
 
+# Var 1
 @pytest.fixture
 def x1():
     return Var(name="x1")
 
+# Var 2
 @pytest.fixture
 def x2():
     return Var(name="x2")
@@ -93,4 +96,10 @@ def test_combine_expressions2(x1, x2):
     expr2 = x1 + x2 - 3
     res = expr1*0.5 + expr2
     assert res.variable_coeffs == {x1: 3.0, x2: 1.0, "const": 2.0}
+    
+    
+def test_expect_error_when_same_var_names():
+    x = Var(name="x1")
+    with pytest.raises(ValueError):
+        y = Var(name="x1")
     
