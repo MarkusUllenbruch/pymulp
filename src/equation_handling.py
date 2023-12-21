@@ -1,6 +1,6 @@
 from enum import Enum # This is a Test
 from typing import Dict
-
+# Änderung by Markus!
 class VarType(Enum):
     CONTINUOUS = "continuous"
     BINARY = "binary"
