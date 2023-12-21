@@ -1,6 +1,6 @@
-from enum import Enum # change by me 1
+from enum import Enum
 from typing import Dict
-# change by me 2
+
 class VarType(Enum):
     CONTINUOUS = "continuous"
     BINARY = "binary"
