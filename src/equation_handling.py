@@ -1,4 +1,4 @@
-from enum import Enum # Remote Änderung by other Dev
+from enum import Enum # Remote Change by Dev xyz
 from typing import Dict
 # Änderung by Markus!
 class VarType(Enum):
