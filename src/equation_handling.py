@@ -1,6 +1,6 @@
-from enum import Enum # Remote Änderung by other Dev
+from enum import Enum # change by me 1
 from typing import Dict
-# Änderung by Markus!
+# change by me 2
 class VarType(Enum):
     CONTINUOUS = "continuous"
     BINARY = "binary"
