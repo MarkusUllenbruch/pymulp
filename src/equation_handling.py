@@ -1,4 +1,4 @@
-from enum import Enum # This is a Test
+from enum import Enum # Remote Änderung by other Dev
 from typing import Dict
 
 class VarType(Enum):
